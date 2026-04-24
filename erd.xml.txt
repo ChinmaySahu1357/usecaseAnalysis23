@@ -1,0 +1,114 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ERD">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- User -->
+        <mxCell id="user" value="User
+-------------------
+user_id (PK)
+name
+email
+password
+role" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="180" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Student -->
+        <mxCell id="student" value="Student
+-------------------
+student_id (PK, FK)
+preferences" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="220" width="180" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Teacher -->
+        <mxCell id="teacher" value="Teacher
+-------------------
+teacher_id (PK, FK)
+bio
+rating
+verified_status" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="220" width="200" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Skill -->
+        <mxCell id="skill" value="Skill
+-------------------
+skill_id (PK)
+skill_name" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="50" width="180" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Teacher_Skill -->
+        <mxCell id="ts" value="Teacher_Skill
+-------------------
+id (PK)
+teacher_id (FK)
+skill_id (FK)" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="200" width="200" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Availability -->
+        <mxCell id="availability" value="Availability
+-------------------
+availability_id (PK)
+teacher_id (FK)
+day
+start_time
+end_time" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="400" width="220" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- Booking -->
+        <mxCell id="booking" value="Booking
+-------------------
+booking_id (PK)
+student_id (FK)
+teacher_id (FK)
+skill_id (FK)
+date
+time
+status" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="400" width="220" height="150" as="geometry"/>
+        </mxCell>
+
+        <!-- Payment -->
+        <mxCell id="payment" value="Payment
+-------------------
+payment_id (PK)
+booking_id (FK)
+amount
+status" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="600" width="200" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Review -->
+        <mxCell id="review" value="Review
+-------------------
+review_id (PK)
+student_id (FK)
+teacher_id (FK)
+rating
+comment" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="600" width="220" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- Relationships -->
+        <mxCell id="r1" style="endArrow=none;" edge="1" parent="1" source="user" target="student"/>
+        <mxCell id="r2" style="endArrow=none;" edge="1" parent="1" source="user" target="teacher"/>
+        <mxCell id="r3" style="endArrow=none;" edge="1" parent="1" source="teacher" target="ts"/>
+        <mxCell id="r4" style="endArrow=none;" edge="1" parent="1" source="skill" target="ts"/>
+        <mxCell id="r5" style="endArrow=none;" edge="1" parent="1" source="teacher" target="availability"/>
+        <mxCell id="r6" style="endArrow=none;" edge="1" parent="1" source="student" target="booking"/>
+        <mxCell id="r7" style="endArrow=none;" edge="1" parent="1" source="teacher" target="booking"/>
+        <mxCell id="r8" style="endArrow=none;" edge="1" parent="1" source="booking" target="payment"/>
+        <mxCell id="r9" style="endArrow=none;" edge="1" parent="1" source="student" target="review"/>
+        <mxCell id="r10" style="endArrow=none;" edge="1" parent="1" source="teacher" target="review"/>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
